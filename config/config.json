@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
-    "database": "my_cost_tracker",
+    "password": "Password123",
+    "database": "cost_tracker_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

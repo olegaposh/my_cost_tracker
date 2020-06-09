@@ -23,6 +23,13 @@ module.exports = (sequelize, DataTypes) => {
       freezeTableName: true
     }
   );
+
+  User.associate = (models) => {
+    User.hasMany(models.Transaction, {
+      onDelete: "cascade"
+    });
+  };
+  
 // generates a hash to conceal the password 
   User.generateHash = password => {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
