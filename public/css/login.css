@@ -1,4 +1,53 @@
 
+.footer {
+    background-image: url(images/footer-curve-btm.png);
+    height: 30vh;
+    background-repeat: no-repeat;
+  
+}
+
+.signupform {
+    background-image: url(images/signinimg.jpg);
+    background-color: #84c4e2;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 5px;
+   background: rgba(170, 37, 37, 0.1);
+   outline: none ;
+   border: none;
+   border-bottom: 1px dotted #fff;
+   border-radius: 5px;
+   margin: 5px;
+   font-weight: bold;
+
+}
+
+.wrap-up {
+    max-width: 350px;
+    border-radius: 20px;
+    margin: auto;
+    background: rgba(0, 0,0,0.8);
+    box-sizing: border-box;
+    padding: 40px;
+    color: #fff;
+    margin-top: 100px;
+
+}
+
+
+.signuptext {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+}
+
+.section1 {
+    background-color: #d6a3a3;
+    
+}
 
 
 
@@ -18,10 +67,6 @@
         border-color: #494949 !important;
         transition: all 0.3s ease 0s;
         }
-
-
-
-
 
 
 .mycosttracktext {
@@ -131,3 +176,5 @@ html, body {
 .login-button:focus {
     background-color: hsla(201, 100%, 50%, 0.5);
 }
+
+
