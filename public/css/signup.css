@@ -1,12 +1,53 @@
 
+.footer {
+    background-image: url(images/footer-curve-btm.png);
+    height: 35vh;
+    background-repeat: no-repeat;
+  
+}
 
 
+input[type=text], input[type=password] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 5px;
+   background: rgba(0, 0,0,0.10);
+   outline: none ;
+   border: none;
+   border-bottom: 1px dotted #fff;
+   border-radius: 5px;
+   margin: 5px;
+   font-weight: bold;
+
+}
+
+.wrap-up {
+    max-width: 350px;
+    border-radius: 20px;
+    margin: auto;
+    background: rgba(0, 0,0,0.8);
+    box-sizing: border-box;
+    padding: 40px;
+    color: #fff;
+    margin-top: 100px;
+
+}
 
 
+.signuptext {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+}
+
+.signupform {
+    background-image: url(images/191204_Blog_Feature_Cost-Management-Basics.jpg);
+    background-color: #84c4e2;
+}
 
 .section2text {
     font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 
@@ -41,12 +82,7 @@
   100%{top: 0em;}
     }
 
-.footer {
-    background-image: url(../images/footer-curve-btm.png);
-    height: 35vh;
-    background-color:lightslategray
-  
-}
+
 .backgroundtext {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
@@ -61,7 +97,7 @@
 
 
 #backgroundimg {
-    background-image: url(../images/71MA1ul6d0L._AC_SL1500_.jpg);
+    background-image: url(images/71MA1ul6d0L._AC_SL1500_\ copy.jpg);
     height: 75vh;
     background-size: cover;
     background-repeat: no-repeat;
@@ -76,8 +112,8 @@ background-repeat: no-repeat;
 
 
 #section2img {
-    height: 8em;
-    width: 8em;
+    height: 6em;
+    width: 6em;
 }
 
 .header {
@@ -94,6 +130,9 @@ background-repeat: no-repeat;
     font-size: 2em;
 }
 
+.section1 {
+    background-color: #d6a3a3;
+}
 
 * {
     box-sizing: border-box;
@@ -118,7 +157,7 @@ html, body {
 }
 
  .login-container {
-    background-color: hsla(201, 24%, 86%, 0.3);
+    background-color: hsla(175, 54%, 35%, 0.3);
     padding: 50px 30px;
     min-width: 400px;
     width: 50%;
@@ -146,7 +185,7 @@ html, body {
 }
 
 .input-group label {
-    color: white;
+    color: rgb(85, 33, 33);
     font-weight: lighter;
     font-size: 1.5em;
     margin-bottom: 7px;
@@ -159,7 +198,7 @@ html, body {
     border: 1px solid hsla(201, 100%, 6%); 
     outline: none;
     border-radius: 5px;
-    color: white;
+    color: rgb(158, 54, 54);
     font-weight: lighter;
 
 }
@@ -176,7 +215,7 @@ html, body {
     border:  1px solid hsl(201, 100%, 50%); 
     outline: none; 
     font-size: 1.5em;
-    color: white;
+    color: rgb(192, 58, 58);
     font-weight: lighter;
     margin-top: 20px;
     cursor: pointer;

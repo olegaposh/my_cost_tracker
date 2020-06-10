@@ -1,40 +1,73 @@
- <div class="contain-fluid header">
-        <div class="row" id="">
+ <div class="full-screen-container-fluid ">
+        <div class="row section1">
             <div class="col-sm-5 ">
                 <h1 class="mycosttracktext">
                     <img src="images/icon-project-task.png" id="costtrackicon">
                     My cost track
                 </h1>
             </div>
-            <div class="col-md-2 ">
+            <div class="col-md-2">
             </div>
-            <div class="col-md-3 ">
+            <div class="col-md-3">
             </div>
-            <div class="col-md-2 ">
+            <div class="col-md-2">
                 <br>
                 <br>
-                <a href="/">
-                    <button type="button" class="btn btn-outline-primary">Sign up</button>
+                <a href="signup.handlebars">
+                    <div class="button_cont" align="center"><a class="example_d" href="" target="_blank"
+                            rel="nofollow noopener">Sign UP</a></div>
                 </a>
             </div>
         </div>
-        </div>
-        <div class="full-screen-container">
-        
-            <div class="login-container">
-                <h3 class="login-title">Welcome</h3>
-                <form>
-                    <div class="input-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="email-input" placeholder="Email">
-                    </div>
-                    <div class="input-group">
-                        <label for=>Password</label>
-                        <input type="password" class="" id="password-input" placeholder="Password">
-                    </div>
-                    <button type="submit" class="login-button">Sign in</button>
-                </form>
+    </div>
+    <div class="container-fluid signupform">
+        <div class="row" id="signupform">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-3">
+            </div>
+            <div class="col-md-5 ">
+                <br>
+                <br>
+                <div class="wrap-up">
+                    <form class="signup">
+                        <div class="form-group">
+                            <h2 class="signuptext">Sign In</h2>
+                            <br>
+                            <label for="">Email </label>
+                            <input type="text" class="form-control" id="email-input" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for=""> Password</label>
+                            <input type="password" class="form-control" id="password-input" placeholder="Password"
+                                required>
+                        </div>
+                        <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Error:</span> <span class="msg"></span>
+                        </div>
+                        <br>
+                        <pre>         <button type="button" class="btn btn-outline-primary">Sign Up</button></pre>
+                    </form>
+                </div>
                 <br />
-                <p>Or sign up <a href="/">here</a></p>
+
             </div>
         </div>
+    </div>
+    <footer class="footer">
+        <div class="row">
+          <div class="col-sm-4">
+          </div>
+          <div class="col-sm-4">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+           <pre>        @copyright 2020. All right Reserved </pre> 
+          </div>
+          <div class="col-sm-4">
+          </div>
+        </div>
+      </footer>
