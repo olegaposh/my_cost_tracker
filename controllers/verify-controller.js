@@ -1,4 +1,4 @@
-const passport = require("password")
+const passport = require("passport")
 const express = require("express")
 const router = express.Router()
 const db = require("../models")
@@ -18,11 +18,19 @@ router.get("/", (req, res) => {
     }
 })
 
+router.get("/login", (req, res) => {
+    res.render("login");
+  });
+
 router.post("/login", passport.authenticate("local-login", {
 
     failureRedirect: "/login",
     successRedirect: "/"
 }))
+
+router.get("/signup", (req, res) => {
+    res.render("signup");
+  });
 
 router.post("/signup", passport.authenticate("local-signup", {
 
