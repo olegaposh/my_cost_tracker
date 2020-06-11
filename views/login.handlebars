@@ -13,9 +13,9 @@
             <div class="col-md-2">
                 <br>
                 <br>
-                <a href="signup.handlebars">
-                    <div class="button_cont" align="center"><a class="example_d" href="" target="_blank"
-                            rel="nofollow noopener">Sign UP</a></div>
+                <a href="/signup">
+                    <div class="button_cont" align="center" class="example_d"
+                            rel="nofollow noopener">Sign UP</div>
                 </a>
             </div>
         </div>
@@ -30,16 +30,16 @@
                 <br>
                 <br>
                 <div class="wrap-up">
-                    <form class="signup">
+                    <form class="signup" form action="/login" method="POST">
                         <div class="form-group">
                             <h2 class="signuptext">Sign In</h2>
                             <br>
                             <label for="">Email </label>
-                            <input type="text" class="form-control" id="email-input" placeholder="Email" required>
+                            <input type="text" name="email" class="form-control" id="email-input" placeholder="Email" required>
                         </div>
                         <div class="form-group">
                             <label for=""> Password</label>
-                            <input type="password" class="form-control" id="password-input" placeholder="Password"
+                            <input type="password" name="password" class="form-control" id="password-input" placeholder="Password"
                                 required>
                         </div>
                         <div style="display: none" id="alert" class="alert alert-danger" role="alert">
@@ -47,7 +47,7 @@
                             <span class="sr-only">Error:</span> <span class="msg"></span>
                         </div>
                         <br>
-                        <pre>         <button type="button" class="btn btn-outline-primary">Sign Up</button></pre>
+                        <pre>         <button type="submit" class="btn btn-outline-primary">Sign In</button></pre>
                     </form>
                 </div>
                 <br />

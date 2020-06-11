@@ -1,7 +1,8 @@
 const exphbs = require("express-handlebars")
 const express = require("express")
 const db = require("./models")
-
+const costController = require("./controllers/cost-controller")
+const verifyController = require("./controllers/verify-controller")
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -16,7 +17,8 @@ app.engine("handlebars",exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 
-// app.use Controllers go here 
+app.use(costController);
+app.use(verifyController);
 
 const startServer = async () => {
 

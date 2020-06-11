@@ -67,23 +67,23 @@ module.exports = passport => {
     )
   );
 
-  const opts = {
-    jwtFromRequest: req => {
-      return req.cookies.jwt;
-    },
-    secretOrKey: jwtSecret.secret
-  };
+  // const opts = {
+  //   jwtFromRequest: req => {
+  //     return req.cookies.jwt;
+  //   },
+  //   secretOrKey: jwtSecret.secret
+  // };
 
-  passport.use(
-    "jwt",
-    new JwtStrategy(opts, async (jwtpayload, done) => {
-      const data = await db.user.findOne({ id: jwtpayload.sub });
+  // passport.use(
+  //   "jwt",
+  //   new JwtStrategy(opts, async (jwtpayload, done) => {
+  //     const data = await db.user.findOne({ id: jwtpayload.sub });
 
-      if (data) {
-        return done(null, data);
-      } else {
-        return done(null, false, { message: "No user found." });
-      }
-    })
-  );
+  //     if (data) {
+  //       return done(null, data);
+  //     } else {
+  //       return done(null, false, { message: "No user found." });
+  //     }
+  //   })
+  // );
 };
