@@ -1,13 +1,13 @@
 
 .footer {
-    background-image: url(images/footer-curve-btm.png);
+    background-image: url("../images/footer-curve-btm.png");
     height: 30vh;
     background-repeat: no-repeat;
   
 }
 
 .signupform {
-    background-image: url(images/signinimg.jpg);
+    background-image: url("../images/signinimg.jpg");
     background-color: #84c4e2;
 }
 
@@ -92,7 +92,7 @@ html, body {
 }
 
 .full-screen-container {
-    background-image: url(../images/background.jpg); 
+    background-image: url("../images/background.jpg"); 
     height: 130vh;
     width: 100vw;
     background-size: cover;

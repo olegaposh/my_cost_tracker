@@ -54,7 +54,7 @@ module.exports = passport => {
       },
       async (email, password, done) => {
         let data = await db.user.findOne({ where: { email: email } });
-
+        // console.log(data)
         if (!data) {
           return done(null, false, { message: "No email found." });
         }

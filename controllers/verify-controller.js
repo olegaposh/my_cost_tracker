@@ -4,15 +4,16 @@ const router = express.Router()
 const db = require("../models")
 
 //passport
+router.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 require("../config/passport")(passport)
 router.use(passport.initialize())
-// optional? 
 router.use(passport.session())
 
 router.get("/", (req, res) => {
-
+    console.log(req.user)
     if (req.user) {
-        res.render("user", { user: req.user})
+        res.render("user", { user: req.user.email})
+        
     } else {
         res.redirect("/login");
     }
@@ -26,7 +27,7 @@ router.post("/login", passport.authenticate("local-login", {
 
     failureRedirect: "/login",
     successRedirect: "/"
-}))
+    }))
 
 router.get("/signup", (req, res) => {
     res.render("signup");
