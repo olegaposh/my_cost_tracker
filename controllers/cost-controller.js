@@ -8,7 +8,7 @@ router.get("/api/user/transaction", async (req, res) => {
         let query = {}
         query.email = req.body.userEmail;
         
-        const data = await db.Transaction.findAll({
+        const data = await db.transaction.findAll({
             where: query
         }).then(
             (result) => {
@@ -42,7 +42,7 @@ router.get("/api/user/transaction", async (req, res) => {
 //This will allow the user to add receipts to their file.
 router.post("/api/user/add", async (req, res) => {
     try{
-        const data = await db.Transaction.create(req.body);
+        const data = await db.transaction.create(req.body);
 
         res.json(data);
 
@@ -57,7 +57,7 @@ router.post("/api/user/add", async (req, res) => {
 //Paid or not paid?
 router.put("/api/user/paid/:id", async (req, res) => {
     try{
-        const data = await db.Transaction.update({
+        const data = await db.transaction.update({
             paid: true,
             where: {
                 id: req.params.id

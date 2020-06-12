@@ -1,6 +1,6 @@
 
 .footer {
-    background-image: url(images/footer-curve-btm.png);
+    background-image: url("../images/footer-curve-btm.png");
     height: 35vh;
     background-repeat: no-repeat;
   
@@ -41,7 +41,7 @@ input[type=text], input[type=password] {
 }
 
 .signupform {
-    background-image: url(images/191204_Blog_Feature_Cost-Management-Basics.jpg);
+    background-image: url("../images/191204_Blog_Feature_Cost-Management-Basics.jpg");
     background-color: #84c4e2;
 }
 
@@ -97,7 +97,7 @@ input[type=text], input[type=password] {
 
 
 #backgroundimg {
-    background-image: url(images/71MA1ul6d0L._AC_SL1500_\ copy.jpg);
+    background-image: url("../images/71MA1ul6d0L._AC_SL1500_.jpg");
     height: 75vh;
     background-size: cover;
     background-repeat: no-repeat;
