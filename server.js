@@ -23,7 +23,7 @@ app.use(verifyController);
 
 const startServer = async () => {
 
-  await db.sequelize.sync({force: false});
+  await db.sequelize.sync({force: true});
 
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}. Visit http://localhost:${PORT} in your browser.`);

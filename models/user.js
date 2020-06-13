@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
-            validate: {
-                isEmail: true
-            }
+        validate: {
+          isEmail: true
+        }
       },
       password: {
         type: DataTypes.TEXT,
@@ -23,18 +23,19 @@ module.exports = (sequelize, DataTypes) => {
       freezeTableName: true
     }
   );
-
+  //models variable has all the trasactions 
   User.associate = (models) => {
     User.hasMany(models.transaction, {
+      // if you delete the user, their transactions get deleted
       onDelete: "cascade"
     });
   };
-  
-// generates a hash to conceal the password 
+
+  // generates a hash to conceal the password 
   User.generateHash = password => {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
   };
-// checks if an unhashed password entered matches the stored hashed password 
+  // checks if an unhashed password entered matches the stored hashed password 
   User.validPassword = (inputPwd, dbPwd) => {
     return bcrypt.compareSync(inputPwd, dbPwd);
   };
