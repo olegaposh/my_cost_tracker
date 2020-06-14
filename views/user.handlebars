@@ -22,6 +22,9 @@
     </div>
     <div class="col-md">
       <h5>Purchase Amount</h5>
+       {{#each userTransactions}} 
+    <p>{{this.amount}}</p>
+    {{/each}}
     </div>
     <div class="col-md">
       <h5>Date of Purchase</h5>
@@ -32,6 +35,7 @@
     <div class="col-md">
       <a href="#" class="btn btn-danger">Delete</a>
     </div>
+   
   </div>
 
 
