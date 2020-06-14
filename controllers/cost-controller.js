@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
+
+router.get("/addTransaction", (req, res) => {
+    res.render("addTran");
+  });
+
 //This router will pull up User specific data based on the query.
 router.get("/api/user/transaction", async (req, res) => {
     try{

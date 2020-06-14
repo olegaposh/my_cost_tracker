@@ -5,35 +5,35 @@
       <h1>Welcome {{user}}!</h1>
       {{#if user}}
     </div>
-
   </div>
+
   <div class="row">
     <div class="col-md-10 p-5">
       <h3>My Transactions</h3>
     </div>
     <div class="col-md-2">
-      <a href="#" class="btn btn-success">New Transaction</a>
+      <a href="/addTransaction" class="btn btn-success">New Transaction</a>
     </div>
-    </div>
+  </div>
 
-    <div class="row text-center">
-      <div class="col-md">
-        <p>Store Name</p>
-      </div>
-      <div class="col-md">
-        <p>Purchase Amount</p>
-      </div>
-      <div class="col-md">
-        <p>Date of Purchase</p>
-      </div>
-      <div class="col-md">
-        <a href="#" class="btn btn-warning">Edit</a>
-      </div>
-      <div class="col-md">
-        <a href="#" class="btn btn-danger">Delete</a>
-      </div>
+  <div class="row text-center">
+    <div class="col-md">
+      <h5>Store Name</h5>
     </div>
-  
+    <div class="col-md">
+      <h5>Purchase Amount</h5>
+    </div>
+    <div class="col-md">
+      <h5>Date of Purchase</h5>
+    </div>
+    <div class="col-md">
+      <a href="#" class="btn btn-warning">Edit</a>
+    </div>
+    <div class="col-md">
+      <a href="#" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+
 
   <div class="row">
     <div class="col-md p-5">
@@ -43,3 +43,4 @@
       {{/if}}
     </div>
   </div>
+</div>
