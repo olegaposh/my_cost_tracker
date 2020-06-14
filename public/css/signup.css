@@ -68,7 +68,7 @@ input[type=text], input[type=password] {
         transition: all 0.3s ease 0s;
         }
 
-.btn{
+/*  .btn{
     animation:bouncy 5s infinite linear;
     position: relative;
     }
@@ -80,7 +80,7 @@ input[type=text], input[type=password] {
   49%{top: -0.4em;}
   50%{top: 0em;}
   100%{top: 0em;}
-    }
+    }  */
 
 
 .backgroundtext {
