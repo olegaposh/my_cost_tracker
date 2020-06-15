@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       },
       paid: {
         type: DataTypes.BOOLEAN,
-        allowNull: false
+        defaultValue: false
       },
-      ShopName: {
+      shop_name: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,

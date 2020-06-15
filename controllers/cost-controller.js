@@ -3,22 +3,53 @@ const router = express.Router();
 const db = require("../models");
 
 
+// router.get("/", (req, res) => {
+
+//     if (req.user) {
+//         try {
+
+//             let query = {}
+//             query.user_id = req.user.id;
+
+//             db.transaction.findAll({
+//                 where: query,
+//                 include: [db.user]
+
+//             }).then((result) => {
+
+//                 res.render("user", {
+//                     user: req.user.email,
+//                     userTransactions: result
+//                 })
+//             }
+//             );
+
+//             // res.json(data);
+//         } catch (error) {
+//             console.log(error);
+
+//             res.status(500).send(error);
+//         }
+
+//     } else {
+//         res.redirect("/login");
+//     }
+// })
+
+
 router.get("/addTransaction", (req, res) => {
     res.render("addTran");
-  });
-
-
-
+});
 
 
 
 
 //This router will pull up User specific data based on the query.
 router.get("/api/user/transaction", async (req, res) => {
-    try{
+    try {
         let query = {}
         query.email = req.body.userEmail;
-        
+
         const data = await db.transaction.findAll({
             where: query
         }).then(
@@ -30,7 +61,7 @@ router.get("/api/user/transaction", async (req, res) => {
         );
 
         // res.json(data);
-    }catch(error) {
+    } catch (error) {
         console.log(error);
 
         res.status(500).send(error);
@@ -51,13 +82,22 @@ router.get("/api/user/transaction", async (req, res) => {
 
 
 //This will allow the user to add receipts to their file.
-router.post("/api/user/add", async (req, res) => {
-    try{
-        const data = await db.transaction.create(req.body);
+router.post("/api/transactions/:id", async (req, res) => {
+    console.log(req.user)
+    try {
+    //    let id = {userId: req.params.id}
+    //     let data = {
+    //         ...req.body,
+    //         ...id
+    //     }
+        req.body.userId = req.params.id
+        
+         const data = await db.transaction.create(req.body);
 
         res.json(data);
 
-    }catch(error) {
+
+    } catch (error) {
         console.log(error);
 
         res.status(500).send(error);
@@ -67,7 +107,7 @@ router.post("/api/user/add", async (req, res) => {
 
 //Paid or not paid?
 router.put("/api/user/paid/:id", async (req, res) => {
-    try{
+    try {
         const data = await db.transaction.update({
             paid: true,
             where: {
@@ -77,7 +117,7 @@ router.put("/api/user/paid/:id", async (req, res) => {
 
         res.json(data);
 
-    }catch(error) {
+    } catch (error) {
         console.log(error);
 
         res.status(500).send(error);
@@ -87,7 +127,7 @@ router.put("/api/user/paid/:id", async (req, res) => {
 
 //Allows user to edit typos.
 router.put("/api/user/transaction/:id", async (req, res) => {
-    try{
+    try {
         const data = await db.Transaction.update(req.body, {
             where: {
                 id: req.params.id
@@ -96,7 +136,7 @@ router.put("/api/user/transaction/:id", async (req, res) => {
 
         res.json(data);
 
-    }catch(error) {
+    } catch (error) {
         console.log(error);
 
         res.status(500).send(error);
@@ -106,7 +146,7 @@ router.put("/api/user/transaction/:id", async (req, res) => {
 
 //Delete function.
 router.delete("/api/user/transaction/:id", async (req, res) => {
-    try{
+    try {
         const data = await db.Transaction.destroy({
             where: {
                 id: req.params.id
@@ -115,7 +155,7 @@ router.delete("/api/user/transaction/:id", async (req, res) => {
 
         res.json(data);
 
-    }catch(error) {
+    } catch (error) {
         console.log(error);
 
         res.status(500).send(error);
