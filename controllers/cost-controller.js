@@ -16,12 +16,10 @@ router.get("/addTransaction", (req, res) => {
 //         const data = await db.transaction.findAll({
 //             where: query,
 //             include: [db.user]
-//         }).then(
-//             (result) => {
 
-           
-                
-//                 res.render("user", {userTransactions : result})
+//         }).then((result) => {
+
+//            res.render("user", {userTransactions : result})
 //             }
 //         );
 
