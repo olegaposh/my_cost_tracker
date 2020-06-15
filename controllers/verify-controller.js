@@ -12,7 +12,7 @@ router.use(passport.session())
 router.get("/", (req, res) => {
     
     
-    console.log(req.user)
+    
     if (req.user) {
         try{
         
@@ -24,10 +24,12 @@ router.get("/", (req, res) => {
                 where: query,
                 include: [db.user]
             }).then((result) => {
-                console.log(result)
-                console.log("FIRST TRY", result[0].amount);
+                
                 //console.log("SECOND TRY", result[0].transaction.amount);
-               res.render("user", {userTransactions: result})
+               res.render("user", {
+                user: req.user.email,
+                userTransactions: result
+            })
                 }
             );
     
