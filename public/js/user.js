@@ -8,7 +8,7 @@ $(document).ready(function () {
         let result;
         try {
             result = await $.ajax({
-                url: "/:id",
+                url: "",
                 type: "POST",
                 data: object
             })

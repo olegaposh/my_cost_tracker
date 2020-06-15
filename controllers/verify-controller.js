@@ -10,9 +10,33 @@ router.use(passport.initialize())
 router.use(passport.session())
 
 router.get("/", (req, res) => {
+    
+    
     console.log(req.user)
     if (req.user) {
-        res.render("user", { user: req.user.email})
+        try{
+        
+            let query = {}
+            query.user_id = req.user.id;
+            
+            //const data = await db.transaction.findAll({
+            db.transaction.findAll({
+                where: query,
+                include: [db.user]
+            }).then((result) => {
+                console.log(result)
+                console.log("FIRST TRY", result[0].amount);
+                //console.log("SECOND TRY", result[0].transaction.amount);
+               res.render("user", {userTransactions: result})
+                }
+            );
+    
+            // res.json(data);
+        }catch(error) {
+            console.log(error);
+    
+            res.status(500).send(error);
+        }
         
     } else {
         res.redirect("/login");

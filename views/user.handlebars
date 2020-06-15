@@ -3,7 +3,7 @@
   <div class="row text-center">
     <div class="col-md">
       <h1>Welcome {{user}}!</h1>
-      {{#if user}}
+      {{#if userTransactions}}
     </div>
   </div>
 
@@ -19,15 +19,21 @@
   <div class="row text-center">
     <div class="col-md">
       <h5>Store Name</h5>
+      {{#each userTransactions}}
+      <p>{{this.dataValues.ShopName}}</p>
+      {{/each}}
     </div>
     <div class="col-md">
       <h5>Purchase Amount</h5>
        {{#each userTransactions}} 
-    <p>{{this.amount}}</p>
-    {{/each}}
+      <p>{{this.dataValues.amount}}</p>
+      {{/each}}
     </div>
     <div class="col-md">
       <h5>Date of Purchase</h5>
+      {{#each userTransactions}}
+      <p>{{this.dataValues.date}}</p>
+      {{/each}}
     </div>
     <div class="col-md">
       <a href="#" class="btn btn-warning">Edit</a>
