@@ -9,7 +9,7 @@ require("../config/passport")(passport)
 router.use(passport.initialize())
 router.use(passport.session())
 
-
+// fetch the user's transactions onto the home page
 router.get("/", (req, res) => {
 
   if (req.user) {
@@ -25,6 +25,7 @@ router.get("/", (req, res) => {
           }).then((result) => {
 
               res.render("user", {
+                  id: req.user.id,
                   user: req.user.email,
                   userTransactions: result
               })

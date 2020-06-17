@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
-
+const passport = require("passport")
 
 // router.get("/", (req, res) => {
 
@@ -38,7 +38,10 @@ const db = require("../models");
 
 
 router.get("/addTransaction", (req, res) => {
-    res.render("addTran");
+
+    const userid = req.query.userid
+
+    res.render("addTran", {id: userid});
 });
 
 
@@ -51,7 +54,7 @@ router.get("/api/user/transaction", async (req, res) => {
         query.email = req.body.userEmail;
 
         const data = await db.transaction.findAll({
-            where: query
+            where: query,
         }).then(
             (result) => {
                 console.log(result);
@@ -68,40 +71,27 @@ router.get("/api/user/transaction", async (req, res) => {
     }
 });
 
-// router.get("/api/ ", async (req, res) => {
-//     try{
-//         const data = await db. .findAll();
-
-//         res.json(data);
-//     }catch(error) {
-//         console.log(error);
-
-//         res.status(500).send(error);
-//     }
-// });
 
 
-//This will allow the user to add receipts to their file.
-router.post("/api/transactions/:id", async (req, res) => {
-    console.log(req.user)
+//ADD TRASACTIONS
+router.post("/api/transactions", async (req, res) => {
+    console.log("hello")
     try {
-    //    let id = {userId: req.params.id}
-    //     let data = {
-    //         ...req.body,
-    //         ...id
-    //     }
-        req.body.userId = req.params.id
+    
+        console.log(req.body);
+        
         
          const data = await db.transaction.create(req.body);
 
         res.json(data);
-
+        
 
     } catch (error) {
         console.log(error);
 
         res.status(500).send(error);
     }
+    
 });
 
 
@@ -128,7 +118,7 @@ router.put("/api/user/paid/:id", async (req, res) => {
 //Allows user to edit typos.
 router.put("/api/user/transaction/:id", async (req, res) => {
     try {
-        const data = await db.Transaction.update(req.body, {
+        const data = await db.transaction.update(req.body, {
             where: {
                 id: req.params.id
             }

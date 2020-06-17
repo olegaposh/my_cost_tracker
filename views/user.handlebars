@@ -30,7 +30,7 @@
       <h3>My Transactions</h3>
     </div>
     <div class="col-md-2">
-      <a href="/addTransaction" class="btn btn-success">New Transaction</a>
+      <a href="/addTransaction?userid={{id}}" class="btn btn-success">New Transaction</a>
     </div>
   </div>
 
@@ -54,7 +54,7 @@
       {{/each}}
     </div>
     <div class="col-md">
-      <a href="#" class="btn btn-warning">Edit</a>
+      <a href="#" ><button class="btn btn-warning">Edit</button></a>
     </div>
     <div class="col-md">
       <a href="#" class="btn btn-danger">Delete</a>
@@ -63,7 +63,6 @@
   </div>
   <div class="row">
     <div class="col-md p-5">
-      <a href="/logout" class="btn btn-success">Log Out</a>
       {{else}}
       <p>Please <a href="/login">log in</a>.</p>
       {{/if}}
