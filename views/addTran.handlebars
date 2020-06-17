@@ -8,24 +8,24 @@
 
     <div class="row">
         <div class="col-md-6">
-            <form>
+            <form id="add"> 
                 <div class="form-group">
                     <label for="date">Date</label>
-                    <input type="text" class="form-control" placeholder="">
+                    <input id="dateInput" type="text" class="form-control" placeholder="">
                 </div>
 
                 <div class="form-group">
                     <label for="amount">Amount</label>
-                    <input type="number" class="form-control" placeholder="">
+                    <input id="amountInput" type="text" class="form-control" placeholder="">
                 </div>
 
                 <div class="form-group">
                     <label for="storeName">Store Name</label>
-                    <input type="text" class="form-control" placeholder="">
+                    <input id="storeName" type="text" class="form-control" placeholder="">
                 </div>
 
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button data-id={{id}} type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>

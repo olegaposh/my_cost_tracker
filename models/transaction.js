@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       date: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
+        unique: false,
       },
       amount: {
         type: DataTypes.FLOAT,
@@ -13,16 +13,16 @@ module.exports = (sequelize, DataTypes) => {
       },
       paid: {
         type: DataTypes.BOOLEAN,
-        allowNull: false
+        defaultValue: false
       },
-      ShopName: {
+      shop_name: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
+        unique: false,
       }
     },
     {
-      underscored: true,
+      underscored: false,
       freezeTableName: true,
       timestamps: false
     }

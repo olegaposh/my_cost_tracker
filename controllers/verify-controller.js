@@ -9,40 +9,39 @@ require("../config/passport")(passport)
 router.use(passport.initialize())
 router.use(passport.session())
 
+// fetch the user's transactions onto the home page
 router.get("/", (req, res) => {
-    
-    
-    
-    if (req.user) {
-        try{
-        
-            let query = {}
-            query.user_id = req.user.id;
-            
-            //const data = await db.transaction.findAll({
-            db.transaction.findAll({
-                where: query,
-                include: [db.user]
-            }).then((result) => {
-                
-                //console.log("SECOND TRY", result[0].transaction.amount);
-               res.render("user", {
-                user: req.user.email,
-                userTransactions: result
-            })
-                }
-            );
-    
-            // res.json(data);
-        }catch(error) {
-            console.log(error);
-    
-            res.status(500).send(error);
-        }
-        
-    } else {
-        res.redirect("/login");
-    }
+
+  if (req.user) {
+      try {
+
+          let query = {}
+          query.userId = req.user.id;
+
+          db.transaction.findAll({
+              where: query,
+              include: [db.user]
+
+          }).then((result) => {
+
+              res.render("user", {
+                  id: req.user.id,
+                  user: req.user.email,
+                  userTransactions: result
+              })
+          }
+          );
+
+          // res.json(data);
+      } catch (error) {
+          console.log(error);
+
+          res.status(500).send(error);
+      }
+
+  } else {
+      res.redirect("/login");
+  }
 })
 
 router.get("/login", (req, res) => {
