@@ -38,47 +38,56 @@
       </div>
     </div>
 
+
+<div class="row text-center">
+  <div class="col-md">
+    <h5>Store Name</h5>
+  </div>
+  <div class="col-md">
+    <h5>Amount</h5>
+  </div>
+  <div class="col-md">
+    <h5>Date</h5>
+  </div>
+  <div class="col-md">
+  </div>
+  <div class="col-md">
+  </div>
+</div>
+    
+{{#each userTransactions}}
     <div class="row text-center">
       <div class="col-md">
         {{!-- STORE NAME --}}
-        <h5>Store Name</h5>
-        {{#each userTransactions}}
+        
         <p class="p-3">{{this.dataValues.shop_name}}</p>
-        {{/each}}
+
       </div>
       <div class="col-md">
         {{!-- AMOUNT --}}
-        <h5>Purchase Amount</h5>
-        {{#each userTransactions}}
+        
         <p class="p-3">{{this.dataValues.amount}}</p>
-        {{!-- <p>{{this.dataValues.id}}</p> --}}
-        {{/each}}
+        
       </div>
       <div class="col-md">
         {{!-- DATE --}}
-        <h5>Date of Purchase</h5>
-        {{#each userTransactions}}
         <p class="p-3">{{this.dataValues.date}}</p>
-        {{/each}}
       </div>
       {{!-- EDIT BUTTON  --}}
       <div class="col-md">
-          {{#each userTransactions}}
           <div class="p-3">
           <a href="/editTransaction?tranId={{this.dataValues.id}}&userId={{../id}}"><button class="btn btn-warning">Edit</button></a>
         </div>
-        {{/each}}
       </div>
       {{!-- DELETE BUTTON --}}
       <div class="col-md">
-        {{#each userTransactions}}
         <div class="p-3">
           <button data-id={{this.dataValues.id}} class="deleteButton btn btn-danger">Delete</button>
         </div>
-        {{/each}}
       </div>
 
     </div>
+    {{/each}}
     <div class="row">
       <div class="col-md p-5">
         {{else}}

@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-   const populateForm = async () => {
+    const populateForm = async () => {
         let id = $("#editButton").attr("data-id");
         let userId = $("#editButton").attr("data-user");
         transaction = await getTran(userId, id);
@@ -8,12 +8,12 @@ $(document).ready(function () {
         $("#dateInput").attr("placeholder", transaction.date);
         $("#amountInput").attr("placeholder", transaction.amount);
         $("#storeName").attr("placeholder", transaction.shop_name);
-   }
+    }
 
-   if (top.location.pathname === '/editTransaction') {
-    populateForm();
-}
-   
+    if (top.location.pathname === '/editTransaction') {
+        populateForm();
+    }
+
 
 
 
@@ -38,7 +38,7 @@ $(document).ready(function () {
 
     })
 
-     $("#edit").on("submit", async () => {
+    $("#edit").on("submit", async () => {
 
         event.preventDefault();
         let id = $("#editButton").attr("data-id");
@@ -60,15 +60,15 @@ $(document).ready(function () {
 
     })
 
-$(".deleteButton").on("click", async () => {
-    event.preventDefault();
-    let id = $(event.target).attr("data-id");
-    const deleteStuff = await deleteTran(id);
-    
-    if (deleteStuff) {
-        window.location.replace("/");
-    }
-})
+    $(".deleteButton").on("click", async () => {
+        event.preventDefault();
+        let id = $(event.target).attr("data-id");
+        const deleteStuff = await deleteTran(id);
+
+        if (deleteStuff) {
+            window.location.replace("/");
+        }
+    })
 
     // GET AJAX
     async function getTran(userId, tranId) {
@@ -131,28 +131,6 @@ $(".deleteButton").on("click", async () => {
             console.log(error)
         }
     }
-
-
-// This function does an API call to delete posts
-    // function deleteTran(id) {
-    //     $.ajax({
-    //       method: "DELETE",
-    //       url: "/api/user/transaction" + id
-    //     })
-    //       .then(function() {
-    //         getPosts(postCategorySelect.val());
-    //       });
-    //   }
-    
-
-      // This function figures out which post we want to delete and then calls deletePost
-//   function handleDeleteTran() {
-//     var currentPost = $(this)
-//       .parent()
-//       .parent()
-//       .data("post");
-//     deleteTrain(currentPost.id);
-//   }
 
 
 })

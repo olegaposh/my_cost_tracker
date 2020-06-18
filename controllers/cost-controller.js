@@ -45,7 +45,6 @@ router.get("/api/user/transaction", async (req, res) => {
     }
 });
 
-//This router will pull up User specific data based on the query.
 router.get("/api/user/:id/transaction", async (req, res) => {
     try {
         let query = {}
@@ -86,27 +85,6 @@ router.post("/api/transactions", async (req, res) => {
     }
     
 });
-
-
-//Paid or not paid?
-router.put("/api/user/paid/:id", async (req, res) => {
-    try {
-        const data = await db.transaction.update({
-            paid: true,
-            where: {
-                id: req.params.id
-            }
-        });
-
-        res.json(data);
-
-    } catch (error) {
-        console.log(error);
-
-        res.status(500).send(error);
-    }
-});
-
 
     //EDIT
 router.put("/api/user/transaction/:id", async (req, res) => {
