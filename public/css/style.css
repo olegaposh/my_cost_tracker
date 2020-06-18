@@ -105,3 +105,9 @@ html, body {
 .login-button:focus {
     background-color: hsla(201, 100%, 50%, 0.5);
 }
+
+
+.btn-danger, .btn-warning {
+
+    margin-top: 20px;
+}

@@ -23,7 +23,7 @@ router.get("/", (req, res) => {
               include: [db.user]
 
           }).then((result) => {
-
+            
               res.render("user", {
                   id: req.user.id,
                   user: req.user.email,
