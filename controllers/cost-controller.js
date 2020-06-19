@@ -44,6 +44,23 @@ router.get("/api/user/transaction", async (req, res) => {
         res.status(500).send(error);
     }
 });
+// total amount
+router.get("/api/usertotal/:id", async (req, res) => {
+    try {
+        let query = {}
+        query.userId = req.params.id
+
+        const data = await db.transaction.findAll({
+            where: query,
+        })
+
+        res.json(data);
+    } catch (error) {
+        console.log(error);
+
+        res.status(500).send(error);
+    }
+});
 
 router.get("/api/user/:id/transaction", async (req, res) => {
     try {
