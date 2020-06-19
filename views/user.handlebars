@@ -1,71 +1,98 @@
- <div class="container-fluid ">
-    <div class="row section1">
-      <div class="col-sm-5 ">
-        <h1 class="mycosttracktext">
-          <img src="images/icon-project-task.png" id="costtrackicon">
-          My cost track
-        </h1>
-      </div>
-      <div class="col-md-2 ">
-      </div>
-      <div class="col-md-3 ">
-      </div>
-      <div class="col-md-2 ">
-        <br>
-        <br>
-        <a href="/logout" class="btn btn-success">Log Out</a>
-      </div>
+<div class="container-fluid ">
+  <div class="row section1">
+    <div class="col-sm-6">
+      <h1 class="mycosttracktext">
+        <img src="images/icon-project-task.png" id="costtrackicon">
+        My Cost Tracker
+      </h1>
     </div>
-    <br>
-<div class="container">
-  <div class="row text-center">
-    <div class="col-md">
-      <h1>Welcome {{user}}!</h1>
-      {{#if user}}
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-10 p-5">
-      <h3>My Transactions</h3>
+    <div class="col-md-2 ">
     </div>
     <div class="col-md-2">
-      <a href="/addTransaction?userid={{id}}" class="btn btn-success">New Transaction</a>
+    </div>
+    <div class="col-md-2 ">
+      <br>
+      <p>{{user}}</p>
+      <br>
+      <a href="/logout" class="btn btn-success">Log Out</a>
     </div>
   </div>
+  <br>
+  <div class="container">
+    
+      <div class="col-md">
+        
+        {{#if user}}
+        
+      </div>
+    </div>
 
-  <div class="row text-center">
-    <div class="col-md">
-      <h5>Store Name</h5>
-      {{#each userTransactions}}
-      <p>{{this.dataValues.shop_name}}</p>
-      {{/each}}
+
+
+    <div class="row">
+      <div class="col-md-10 p-5 text-center">
+        <h3>My Transactions</h3>
+      </div>
+      <div class="col-md-2">
+        <a href="/addTransaction?userid={{id}}" class="btn btn-success">New Transaction</a>
+      </div>
     </div>
-    <div class="col-md">
-      <h5>Purchase Amount</h5>
-       {{#each userTransactions}} 
-      <p>{{this.dataValues.amount}}</p>
-      {{/each}}
-    </div>
-    <div class="col-md">
-      <h5>Date of Purchase</h5>
-      {{#each userTransactions}}
-      <p>{{this.dataValues.date}}</p>
-      {{/each}}
-    </div>
-    <div class="col-md">
-      <a href="#" ><button class="btn btn-warning">Edit</button></a>
-    </div>
-    <div class="col-md">
-      <a href="#" class="btn btn-danger">Delete</a>
-    </div>
-   
+
+
+<div class="row text-center">
+  <div class="col-md">
+    <h5>Store Name</h5>
   </div>
-  <div class="row">
-    <div class="col-md p-5">
-      {{else}}
-      <p>Please <a href="/login">log in</a>.</p>
-      {{/if}}
-    </div>
+  <div class="col-md">
+    <h5>Amount</h5>
+  </div>
+  <div class="col-md">
+    <h5>Date</h5>
+  </div>
+  <div class="col-md">
+  </div>
+  <div class="col-md">
   </div>
 </div>
+    
+{{#each userTransactions}}
+    <div class="row text-center">
+      <div class="col-md">
+        {{!-- STORE NAME --}}
+        
+        <p class="p-3">{{this.dataValues.shop_name}}</p>
+
+      </div>
+      <div class="col-md">
+        {{!-- AMOUNT --}}
+        
+        <p class="p-3">{{this.dataValues.amount}}</p>
+        
+      </div>
+      <div class="col-md">
+        {{!-- DATE --}}
+        <p class="p-3">{{this.dataValues.date}}</p>
+      </div>
+      {{!-- EDIT BUTTON  --}}
+      <div class="col-md">
+          <div class="p-3">
+          <a href="/editTransaction?tranId={{this.dataValues.id}}&userId={{../id}}"><button class="btn btn-warning">Edit</button></a>
+        </div>
+      </div>
+      {{!-- DELETE BUTTON --}}
+      <div class="col-md">
+        <div class="p-3">
+          <button data-id={{this.dataValues.id}} class="deleteButton btn btn-danger">Delete</button>
+        </div>
+      </div>
+
+    </div>
+    {{/each}}
+    <div class="row">
+      <div class="col-md p-5">
+        {{else}}
+        <p>Please <a href="/login">log in</a>.</p>
+        {{/if}}
+      </div>
+    </div>
+  </div>

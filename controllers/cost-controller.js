@@ -3,39 +3,6 @@ const router = express.Router();
 const db = require("../models");
 const passport = require("passport")
 
-// router.get("/", (req, res) => {
-
-//     if (req.user) {
-//         try {
-
-//             let query = {}
-//             query.user_id = req.user.id;
-
-//             db.transaction.findAll({
-//                 where: query,
-//                 include: [db.user]
-
-//             }).then((result) => {
-
-//                 res.render("user", {
-//                     user: req.user.email,
-//                     userTransactions: result
-//                 })
-//             }
-//             );
-
-//             // res.json(data);
-//         } catch (error) {
-//             console.log(error);
-
-//             res.status(500).send(error);
-//         }
-
-//     } else {
-//         res.redirect("/login");
-//     }
-// })
-
 
 router.get("/addTransaction", (req, res) => {
 
@@ -45,6 +12,13 @@ router.get("/addTransaction", (req, res) => {
 });
 
 
+router.get("/editTransaction", (req, res) => {
+
+    const tranId = req.query.tranId;
+    const curUserId = req.query.userId;
+
+    res.render("editTran", {id: tranId, userId: curUserId});
+});
 
 
 //This router will pull up User specific data based on the query.
@@ -64,6 +38,24 @@ router.get("/api/user/transaction", async (req, res) => {
         );
 
         // res.json(data);
+    } catch (error) {
+        console.log(error);
+
+        res.status(500).send(error);
+    }
+});
+
+router.get("/api/user/:id/transaction", async (req, res) => {
+    try {
+        let query = {}
+        query.id = req.query.tranId;
+        query.userId = req.params.id
+
+        const data = await db.transaction.findAll({
+            where: query,
+        })
+
+        res.json(data);
     } catch (error) {
         console.log(error);
 
@@ -94,28 +86,7 @@ router.post("/api/transactions", async (req, res) => {
     
 });
 
-
-//Paid or not paid?
-router.put("/api/user/paid/:id", async (req, res) => {
-    try {
-        const data = await db.transaction.update({
-            paid: true,
-            where: {
-                id: req.params.id
-            }
-        });
-
-        res.json(data);
-
-    } catch (error) {
-        console.log(error);
-
-        res.status(500).send(error);
-    }
-});
-
-
-//Allows user to edit typos.
+    //EDIT
 router.put("/api/user/transaction/:id", async (req, res) => {
     try {
         const data = await db.transaction.update(req.body, {
@@ -137,7 +108,7 @@ router.put("/api/user/transaction/:id", async (req, res) => {
 //Delete function.
 router.delete("/api/user/transaction/:id", async (req, res) => {
     try {
-        const data = await db.Transaction.destroy({
+        const data = await db.transaction.destroy({
             where: {
                 id: req.params.id
             }

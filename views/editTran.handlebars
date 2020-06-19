@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="row text-center">
+    <div class="col-md">
+      <h1>Edit Transaction</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <form id="edit">
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input id="dateInput" type="text" class="form-control" placeholder="">
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input id="amountInput" type="text" class="form-control" placeholder="">
+        </div>
+
+        <div class="form-group">
+          <label for="storeName">Store Name</label>
+          <input id="storeName" type="text" class="form-control" placeholder="">
+        </div>
+
+        <button id="editButton" data-id={{id}} data-user={{userId}} type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+
+</div>
