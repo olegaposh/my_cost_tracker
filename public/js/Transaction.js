@@ -3,7 +3,7 @@ $(document).ready(function () {
     const populateForm = async () => {
         let id = $("#editButton").attr("data-id");
         let userId = $("#editButton").attr("data-user");
-        transaction = await getTran(userId, id);
+        let transaction = await getTran(userId, id);
         transaction = transaction[0];
         $("#dateInput").attr("placeholder", transaction.date);
         $("#amountInput").attr("placeholder", transaction.amount);
@@ -13,6 +13,28 @@ $(document).ready(function () {
     if (top.location.pathname === '/editTransaction') {
         populateForm();
     }
+
+
+
+    const findTotal = async () => {
+        
+        let userId = $("#addButton").attr("data-id");
+        let transactions = await getAllTran(userId);
+        
+        let total = 0;
+        for (transaction of transactions) {
+
+            total += parseFloat(transaction.amount)
+        }
+
+        $(".total").append(total);
+    }
+
+    if (top.location.pathname === '/') {
+        findTotal();
+    }
+
+
 
 
 
@@ -69,6 +91,22 @@ $(document).ready(function () {
             window.location.replace("/");
         }
     })
+
+ // GET TOTAL
+ async function getAllTran(userId) {
+    let result;
+    try {
+        result = await $.ajax({
+            url: "/api/usertotal/" + userId,
+            type: "GET"
+        })
+        return result;
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
     // GET AJAX
     async function getTran(userId, tranId) {
