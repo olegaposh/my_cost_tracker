@@ -24,13 +24,25 @@ router.get("/", (req, res) => {
 
           }).then((result) => {
             
+            let total = 0;
+            for (i= 0; i < result.length; i++) {
+
+                total = total + result[i].dataValues.amount
+              }
+
               res.render("user", {
                   id: req.user.id,
                   user: req.user.email,
-                  userTransactions: result
+                  userTransactions: result,
+                  total: total
               })
-          }
-          );
+            //   console.log(result[1].dataValues)
+
+              
+              
+
+
+          });
 
           // res.json(data);
       } catch (error) {

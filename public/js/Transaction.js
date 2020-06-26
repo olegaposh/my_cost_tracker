@@ -14,31 +14,6 @@ $(document).ready(function () {
         populateForm();
     }
 
-
-
-    const findTotal = async () => {
-        
-        let userId = $("#addButton").attr("data-id");
-        let transactions = await getAllTran(userId);
-        
-        let total = 0;
-        for (transaction of transactions) {
-
-            total += parseFloat(transaction.amount)
-        }
-
-        $(".total").append(total);
-    }
-
-    if (top.location.pathname === '/') {
-        findTotal();
-    }
-
-
-
-
-
-
     $("#add").on("submit", async () => {
 
         event.preventDefault();
