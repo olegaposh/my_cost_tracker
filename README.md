@@ -14,7 +14,7 @@
   
 Link:
    
-[Click Here]("https://my-cost-tracker.herokuapp.com/")
+[Click Here](https://my-cost-tracker.herokuapp.com/)
   
 ## Description:
   
